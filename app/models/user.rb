@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum type: { student: 0, humanresourcedevelopment: 1 }, _prefix: true
+  enum humanType: { student: 0, humanresourcedevelopment: 1 }, _prefix: true
 end

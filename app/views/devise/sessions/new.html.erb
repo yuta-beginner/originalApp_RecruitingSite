@@ -1,6 +1,14 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
+  <div class="field">
+    <%= f.radio_button :humanType, 0 %>
+    <%= f.label :humanType, "学生", {value: 0, style: "display: inline-block;"} %>
+    <%= f.radio_button :humanType, 1 %>
+    <%= f.label :humanType, "人事", {value: 1, style: "display: inline-block;"} %>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
