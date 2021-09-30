@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  resource :users, only: [:edit, :update] do
-    collection do
-      get "mypage", :to => "users#mypage"
-      get "mypage/edit", :to => "users#edit"
-      put "mypage", :to => "users#update"
+  root to: "home#index"
+  
+  resource :users, only: [:get, :edit, :update] do
+    member do
+      get "mypage", :to => "mypage#mypage"
+      get "mypage/edit", :to => "mypage#edit"
+      put "mypage", :to => "mypage#update"
     end
   end
-
-  root to: "home#index"
 end

@@ -4,10 +4,12 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.radio_button :humanType, 0 %>
-    <%= f.label :humanType, "学生", {value: 0, style: "display: inline-block;"} %>
-    <%= f.radio_button :humanType, 1 %>
-    <%= f.label :humanType, "人事", {value: 1, style: "display: inline-block;"} %>
+    <%= f.label(:student, for: nil, class:'user-humanType_label') do %>
+      <%= f.radio_button :humanType, :student %>学生
+    <% end %>
+    <%= f.label(:humanresourcedevelopment, for: nil, class:'user-humanType_label') do %>
+      <%= f.radio_button :humanType, :humanresourcedevelopment %>人事
+    <% end %>
   </div>
 
   <div class="field">

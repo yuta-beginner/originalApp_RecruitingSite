@@ -1,12 +1,3 @@
-<h1>Users#mypage</h1>
-
-<div class="field">
-    <%= f.radio_button :humanType, 0 %>
-    <%= f.label :humanType, "学生", {value: 0, style: "display: inline-block;"} %>
-    <%= f.radio_button :humanType, 1 %>
-    <%= f.label :humanType, "人事", {value: 1, style: "display: inline-block;"} %>
-</div>
-
 <h3>メールアドレス</h3>
 <%= @user.email %>
 
@@ -16,7 +7,7 @@
 <h3>名前</h3>
 <%= @user.name %>
 
-<% if current_user.humanType == 0 %>
+<% if current_user.humanType == 'humanresourcedevelopment'%>
   <h3>卒年</h3>
   <%= @user.graduateYear %>
 
@@ -32,8 +23,9 @@
   <h3>自己PR</h3>
   <%= @user.selfPR %>
 <% end %>
+
 <%= link_to mypage_edit_users_path do %>
-    <i class="btn btn-social-icon btn-twitter"><span class="fab fa-twitter fa-fw"></span></i>
+    <i class="btn btn-social-icon btn-twitter"><span class="fab fa-twitter fa-fw">あいうえお</span></i>
 <% end %>
 
 <p>Find me in app/views/users/mypage.html.erb</p>
