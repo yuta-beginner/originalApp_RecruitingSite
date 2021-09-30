@@ -1,0 +1,39 @@
+<h1>Users#mypage</h1>
+
+<div class="field">
+    <%= f.radio_button :humanType, 0 %>
+    <%= f.label :humanType, "学生", {value: 0, style: "display: inline-block;"} %>
+    <%= f.radio_button :humanType, 1 %>
+    <%= f.label :humanType, "人事", {value: 1, style: "display: inline-block;"} %>
+</div>
+
+<h3>メールアドレス</h3>
+<%= @user.email %>
+
+<h3>パスワード</h3>
+<%= @user.password %>
+
+<h3>名前</h3>
+<%= @user.name %>
+
+<% if current_user.humanType == 0 %>
+  <h3>卒年</h3>
+  <%= @user.graduateYear %>
+
+  <h3>大学・学部・学科名</h3>
+  <%= @user.graduateYear %>
+
+  <h3>志望業界</h3>
+  <%= @user.industry %>
+
+  <h3>希望する企業規模（"大手・中小・ベンチャー・特に気にしない"の4つから1つ選び記入してください。）</h3>
+  <%= @user.companyScale %>
+
+  <h3>自己PR</h3>
+  <%= @user.selfPR %>
+<% end %>
+<%= link_to mypage_edit_users_path do %>
+    <i class="btn btn-social-icon btn-twitter"><span class="fab fa-twitter fa-fw"></span></i>
+<% end %>
+
+<p>Find me in app/views/users/mypage.html.erb</p>
