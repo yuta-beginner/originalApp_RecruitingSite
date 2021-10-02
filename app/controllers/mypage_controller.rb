@@ -3,14 +3,21 @@ class MypageController < ApplicationController
   before_action :set_user
 
   def edit
+    unless @user == current_user
+      redirect_to mypage_users_path(@user)
+    end
   end
   
   def update
-    @user.update_without_current_password(user_params)
-    redirect_to mypage_mypage_url
+    if @user.update(user_params)
+      redirect_to mypage_users_path(current_user)
+    else
+      render :edit
+    end
   end
   
   def mypage
+    @user = current_user
   end
   
   private
@@ -19,6 +26,6 @@ class MypageController < ApplicationController
     end
   
     def user_params
-      params.permit(:humanType, :email, :password, :password_confirmation, :name, :graduateYear, :university, :industry, :companyScale, :selfPR)
+      params.require(:user).permit(:humanType, :email, :password, :password_confirmation, :name, :graduateYear, :university, :industry, :companyScale, :selfPR)
     end
 end

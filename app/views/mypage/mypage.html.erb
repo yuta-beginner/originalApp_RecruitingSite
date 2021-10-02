@@ -7,7 +7,7 @@
 <h3>名前</h3>
 <%= @user.name %>
 
-<% if current_user.humanType == 'humanresourcedevelopment'%>
+<% if current_user.humanType == 'student'%>
   <h3>卒年</h3>
   <%= @user.graduateYear %>
 
@@ -25,7 +25,7 @@
 <% end %>
 
 <%= link_to mypage_edit_users_path do %>
-    <i class="btn btn-social-icon btn-twitter"><span class="fab fa-twitter fa-fw">あいうえお</span></i>
+    <i class="btn btn-social-icon btn-twitter"><span class="fab fa-twitter fa-fw">会員情報の修正</span></i>
 <% end %>
 
 <p>Find me in app/views/users/mypage.html.erb</p>

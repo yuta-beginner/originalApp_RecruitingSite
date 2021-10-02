@@ -13,4 +13,17 @@ module ApplicationHelper
             flash_key.to_s
         end
     end
+    def resource_name
+        :user
+    end
+    def resource
+        @resource ||= User.new
+    end
+     
+    def devise_mapping
+        @devise_mapping ||= Devise.mappings[:user]
+    end
+    def log_in(user)
+        session[:user_id] = user.id
+    end
 end

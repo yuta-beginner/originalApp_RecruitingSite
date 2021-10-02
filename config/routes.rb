@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     member do
       get "mypage", :to => "mypage#mypage"
       get "mypage/edit", :to => "mypage#edit"
-      put "mypage", :to => "mypage#update"
+      patch "mypage", :to => "mypage#update"
     end
   end
 end
