@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_28_122252) do
+ActiveRecord::Schema.define(version: 2021_10_05_211900) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_09_28_122252) do
     t.integer "graduateYear"
     t.string "university"
     t.string "industry"
-    t.string "companyScale"
+    t.integer "companyScale", default: 3
     t.text "selfPR"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

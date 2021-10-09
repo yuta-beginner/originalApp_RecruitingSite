@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "home#index"
   
-  resource :users, only: [:get, :edit, :update] do
-    member do
-      get "mypage", :to => "mypage#mypage"
-      get "mypage/edit", :to => "mypage#edit"
-      patch "mypage", :to => "mypage#update"
-    end
-  end
+  get "mypage", :to => "mypage#mypage"
+  delete "mypage", :to => "mypage#destroy"
 end

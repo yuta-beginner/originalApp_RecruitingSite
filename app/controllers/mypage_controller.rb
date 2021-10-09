@@ -19,6 +19,13 @@ class MypageController < ApplicationController
   def mypage
     @user = current_user
   end
+
+  def destroy
+    @user = current_user
+    @user.destroy
+      flash[:notice] = 'ユーザーを削除しました。'
+      redirect_to new_user_registration_path
+  end
   
   private
     def set_user

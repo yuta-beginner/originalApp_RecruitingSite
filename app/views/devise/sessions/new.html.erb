@@ -1,15 +1,6 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-   
-  <div class="field">
-    <%= f.label(:student, for: nil, class:'user-humanType_label') do %>
-      <%= f.radio_button :humanType, :student %>学生
-    <% end %>
-    <%= f.label(:humanresourcedevelopment, for: nil, class:'user-humanType_label') do %>
-      <%= f.radio_button :humanType, :humanresourcedevelopment %>人事
-    <% end %>
-  </div>
 
   <div class="field">
     <%= f.label :email %><br />
