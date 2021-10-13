@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @article.category %>
+</p>
+
+<p>
+  <strong>Article industry:</strong>
+  <%= @article.article_industry %>
+</p>
+
+<p>
+  <strong>Article companyscale:</strong>
+  <%= @article.article_companyScale %>
+</p>
+
+<p>
+  <strong>Article content:</strong>
+  <%= @article.article_content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @article.user %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
