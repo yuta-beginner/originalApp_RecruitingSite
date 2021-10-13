@@ -7,4 +7,6 @@ class User < ApplicationRecord
   enum humanType: { student: 0, humanresourcedevelopment: 1 }, _prefix: true
   enum companyScale: { large: 0,  smallmedium: 1, venture: 2, nothing: 3 }, _prefix: true
   attr_accessor :current_password
+
+  has_many :articles
 end

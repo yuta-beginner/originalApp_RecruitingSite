@@ -1,9 +1,10 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
   def index
-    @articles = Article.all
+    @articles = current_user.articles.all
   end
 
   # GET /articles/1
@@ -12,7 +13,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   # GET /articles/1/edit
@@ -21,7 +22,7 @@ class ArticlesController < ApplicationController
 
   # POST /articles
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
 
     if @article.save
       redirect_to @article, notice: 'Article was successfully created.'
@@ -46,12 +47,11 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      @article = current_user.articles.find_by(params[:id])
+      redirect_to(articles_url, alert: "ERROR!!") if @article.blank?
     end
 
-    # Only allow a trusted parameter "white list" through.
     def article_params
       params.require(:article).permit(:category, :article_industry, :article_companyScale, :article_content, :user_id)
     end

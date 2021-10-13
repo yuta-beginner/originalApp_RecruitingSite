@@ -12,8 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :category %>
-    <%= form.number_field :category %>
+    <%= form.label(:selfPR, for: nil, class:'category_label') do %>
+      <%= form.radio_button :category, :selfPR %>自己PR
+    <% end %>
+    <%= form.label(:reason, for: nil, class:'category_label') do %>
+      <%= form.radio_button :category, :reason %>志望動機
+    <% end %>
+    <%= form.label(:movie, for: nil, class:'category_label') do %>
+      <%= form.radio_button :category, :movie %>面接動画
+    <% end %>
   </div>
 
   <div class="field">
@@ -22,18 +29,23 @@
   </div>
 
   <div class="field">
-    <%= form.label :article_companyScale %>
-    <%= form.number_field :article_companyScale %>
+    <%= form.label(:large, for: nil, class:'article-companyScale_label') do %>
+      <%= form.radio_button :article_companyScale, :large %>大手
+    <% end %>
+    <%= form.label(:smallmedium, for: nil, class:'article-companyScale_label') do %>
+      <%= form.radio_button :article_companyScale, :smallmedium %>中小
+    <% end %>
+    <%= form.label(:venture, for: nil, class:'article-companyScale_label') do %>
+      <%= form.radio_button :article_companyScale, :venture %>ベンチャー
+    <% end %>
+    <%= form.label(:nothing, for: nil, class:'article-companyScale_label') do %>
+      <%= form.radio_button :article_companyScale, :nothing %>特に気にしない
+    <% end %>
   </div>
 
   <div class="field">
     <%= form.label :article_content %>
     <%= form.text_area :article_content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
   </div>
 
   <div class="actions">
