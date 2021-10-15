@@ -4,7 +4,9 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = current_user.articles.all
+    @selfPRarticles = current_user.articles.where(category: 'selfPR')
+    @reasonarticles = current_user.articles.where(category: 'reason')
+    @moviearticles = current_user.articles.where(category: 'movie')
   end
 
   # GET /articles/1
