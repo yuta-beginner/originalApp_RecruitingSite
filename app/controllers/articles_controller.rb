@@ -11,6 +11,9 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   def show
+    @article = current_user.articles.find(params[:id])
+    @comments = @article.comments
+    @comment = Comment.new
   end
 
   # GET /articles/new
@@ -20,6 +23,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @article = current_user.articles.find(params[:id])
   end
 
   # POST /articles
@@ -35,6 +39,8 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1
   def update
+    @article = current_user.articles.find(params[:id])
+
     if @article.update(article_params)
       redirect_to @article, notice: 'Article was successfully updated.'
     else

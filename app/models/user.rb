@@ -8,5 +8,6 @@ class User < ApplicationRecord
   enum companyScale: { large: 0,  smallmedium: 1, venture: 2, nothing: 3 }, _prefix: true
   attr_accessor :current_password
 
-  has_many :articles
+  has_many :articles, dependent: :destroy
+  has_many :comments
 end
