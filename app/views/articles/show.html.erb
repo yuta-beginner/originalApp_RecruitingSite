@@ -34,6 +34,7 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
+        <td><%= comment.user.email %></td>
         <td><%= comment.comment_content %></td>
       </tr>
     <% end %>

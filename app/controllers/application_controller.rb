@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
     # サインアップ時にhumanTypeのストロングパラメータを追加
     devise_parameter_sanitizer.permit(:sign_up, keys: [:humanType])
     # アカウント編集の時にnameとprofileのストロングパラメータを追加
-    devise_parameter_sanitizer.permit(:account_update, keys: [:humanType, :name, :graduateYear, :university, :industry, :companyScale, :selfPR])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:humanType, :name, :graduateYear, :university, :industry, :companyScale, :selfPR, :image])
   end
 end

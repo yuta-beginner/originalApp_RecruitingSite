@@ -76,6 +76,8 @@
     <%= f.text_area :selfPR, autofocus: true, placeholder: "Please your comments in 600 words" %>
   </div>
 
+  <%= f.label "image" %><br><%= f.file_field :image %>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

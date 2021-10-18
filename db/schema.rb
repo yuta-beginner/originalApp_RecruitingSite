@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_155316) do
+ActiveRecord::Schema.define(version: 2021_10_18_153818) do
 
   create_table "articles", force: :cascade do |t|
     t.integer "category", default: 0, null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_10_13_155316) do
     t.string "industry"
     t.integer "companyScale", default: 3
     t.text "selfPR"
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
