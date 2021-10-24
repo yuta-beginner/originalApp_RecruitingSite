@@ -53,6 +53,13 @@ class ArticlesController < ApplicationController
     @article.destroy
     redirect_to articles_url, notice: 'Article was successfully destroyed.'
   end
+  
+  # GET /articles/otherarticle
+  def otherarticle
+    @selfPRarticles = Article.where(category: 'selfPR')
+    @reasonarticles = Article.where(category: 'reason')
+    @moviearticles = Article.where(category: 'movie')
+  end
 
   private
     def set_article

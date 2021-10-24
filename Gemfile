@@ -71,4 +71,4 @@ gem 'devise', '~> 4.2'
 # 画像添付
 gem 'carrierwave'
 # 画像をリサイズ
-# gem 'rmagick'
+gem 'rmagick'

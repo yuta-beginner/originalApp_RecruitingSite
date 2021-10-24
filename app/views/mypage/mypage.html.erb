@@ -15,7 +15,7 @@
 
 <h3>アイコン画像<h3>
 <% if @user.image? %>
-    <%= image_tag @user.image.url %>
+  <%= image_tag @user.image.url %>
 <% end %>
 
 <h3>名前</h3>
@@ -67,4 +67,8 @@
 
 <%= link_to articles_path do %>
   <i class="btn btn-social-icon btn-twitter"><span class="fab fa-twitter fa-fw">投稿画面へ</span></i>
+<% end %>
+
+<%= link_to otherarticle_path do %>
+  <i class="btn btn-social-icon btn-twitter"><span class="fab fa-twitter fa-fw">他の人の投稿へ</span></i>
 <% end %>

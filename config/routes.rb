@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   
   get "mypage", :to => "mypage#mypage"
   delete "mypage", :to => "mypage#destroy"
+  get "otherarticle", :to => "articles#otherarticle" 
 end
