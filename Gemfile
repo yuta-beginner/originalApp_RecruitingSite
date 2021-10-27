@@ -72,3 +72,9 @@ gem 'devise', '~> 4.2'
 gem 'carrierwave'
 # 画像をリサイズ
 gem 'rmagick'
+
+# Gemfileにfog-awsを追加
+gem 'fog-aws'
+
+# キーを環境変数化
+gem 'dotenv-rails'
