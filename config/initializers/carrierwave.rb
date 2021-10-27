@@ -4,7 +4,6 @@ CarrierWave.configure do |config|
       provider: 'AWS', # required
       aws_access_key_id: ENV['S3_ACCESS_KEY_ID'],          # required unless using use_iam_profile
       aws_secret_access_key: ENV['S3_SECRET_ACCESS_KEY'],  # required unless using use_iam_profile
-      use_iam_profile: true,                               # optional, defaults to false
       region: 'ap-northeast-1',                            # optional, defaults to 'us-east-1'
     }
     config.fog_directory  = 'originalapp-recruitingsite-s3bucket'                 # required
