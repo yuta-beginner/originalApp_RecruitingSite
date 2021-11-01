@@ -5,6 +5,7 @@
     <h3>自己PR</h3>
     <% @selfPRarticles.each do |article| %>
       <tr>
+        <td><%= article.id %></td>
         <td><%= article.category %></td>
         <td><%= article.article_industry %></td>
         <td><%= article.article_companyScale %></td>
@@ -19,6 +20,7 @@
     <h3>志望動機</h3>
     <% @reasonarticles.each do |article| %>
       <tr>
+        <td><%= article.id %></td>
         <td><%= article.category %></td>
         <td><%= article.article_industry %></td>
         <td><%= article.article_companyScale %></td>
@@ -33,6 +35,7 @@
   <tbody>
     <% @moviearticles.each do |article| %>
       <tr>
+        <td><%= article.id %></td>
         <td><%= article.category %></td>
         <td><%= article.article_industry %></td>
         <td><%= article.article_companyScale %></td>

@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:edit, :update, :destroy]
 
   # GET /articles
   def index
@@ -23,7 +23,6 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
-    @article = current_user.articles.find(params[:id])
   end
 
   # POST /articles
@@ -39,7 +38,6 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1
   def update
-    @article = current_user.articles.find(params[:id])
 
     if @article.update(article_params)
       redirect_to @article, notice: 'Article was successfully updated.'
@@ -63,7 +61,7 @@ class ArticlesController < ApplicationController
 
   private
     def set_article
-      @article = current_user.articles.find_by(params[:id])
+      @article = current_user.articles.find(params[:id])
       redirect_to(articles_url, alert: "ERROR!!") if @article.blank?
     end
 
