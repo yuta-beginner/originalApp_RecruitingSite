@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :comments
   mount_uploader :image, ImageUploader
+  mount_uploader :movie, VideoUploader
 end
