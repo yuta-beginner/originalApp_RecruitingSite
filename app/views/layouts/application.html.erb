@@ -11,14 +11,20 @@
   </head>
 
   <body>
-    <%= render "layouts/header" %>
     <%= render "layouts/flash" %>
+    <%  if user_signed_in?  %>
+    　<%= render "layouts/sidebar" %>
+    <% else %>
+      <%= render "layouts/header" %>
+    <% end %>
     <div id="modalArea"></div>
     <main>
       <div class="container-fruid h-100 p-2 d-flex flex-column">
         <%= yield %>
       </div>
     </main>
-    <%= render "layouts/footer" %>
+    <% unless user_signed_in? %>
+      <%= render "layouts/footer" %>
+    <% end %>
   </body>
 </html>

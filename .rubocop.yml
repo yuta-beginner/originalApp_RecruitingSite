@@ -6,6 +6,8 @@ require:
 AllCops:
   # Rubyバージョン指定
   TargetRubyVersion: 2.6
+  # railsバージョン指定
+  TargetRailsVersion: 5.2
 
 # 日本語でのコメントを許可
 AsciiComments:

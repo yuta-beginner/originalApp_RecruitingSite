@@ -1,47 +1,82 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-  <tbody>
-    <h3>自己PR</h3>
-    <% @selfPRarticles.each do |article| %>
-      <tr>
-        <td><%= article.id %></td>
-        <td><%= article.category %></td>
-        <td><%= article.article_industry %></td>
-        <td><%= article.article_companyScale %></td>
-        <td><%= article.article_content %></td>
-        <td><%= link_to 'Show', article_path(article) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<table>
-  <tbody>
-    <h3>志望動機</h3>
-    <% @reasonarticles.each do |article| %>
-      <tr>
-        <td><%= article.id %></td>
-        <td><%= article.category %></td>
-        <td><%= article.article_industry %></td>
-        <td><%= article.article_companyScale %></td>
-        <td><%= article.article_content %></td>
-        <td><%= link_to 'Show', article_path(article) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<table>
-  <h3>面接動画</h3>
-  <tbody>
-    <% @moviearticles.each do |article| %>
-      <tr>
-        <td><%= article.id %></td>
-        <td><%= article.category %></td>
-        <td><%= article.article_industry %></td>
-        <td><%= article.article_companyScale %></td>
-        <td><%= article.article_content %></td>
-        <td><%= link_to 'Show', article_path(article) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div class="row">
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">他の人の投稿一覧</h1>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <tbody>
+            <h3 style="padding-bottom: 10px">自己PR</h3>
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">ユーザー名</th>
+                <th scope="col">志望業界</th>
+                <th scope="col">志望する企業規模</th>
+                <th scope="col">投稿内容</th>
+                <th scope="col">投稿詳細へ</th>
+              </tr>
+            </thead>
+            <% @selfPRarticles.each do |article| %>
+              <tr>
+                <td><%= article.user.name %></td>
+                <td><%= article.article_industry %></td>
+                <td><%= article.article_companyScale %></td>
+                <td><%= article.article_content %></td>
+                <td><%= link_to 'Show', article_path(article) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <table class="table table-sm">
+          <tbody>
+            <h3 style="padding-bottom: 10px">志望動機</h3>
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">ユーザー名</th>
+                <th scope="col">志望業界</th>
+                <th scope="col">志望する企業規模</th>
+                <th scope="col">投稿内容</th>
+                <th scope="col">投稿詳細へ</th>
+              </tr>
+            </thead>
+            <% @reasonarticles.each do |article| %>
+              <tr>
+                <td><%= article.user.name %></td>
+                <td><%= article.article_industry %></td>
+                <td><%= article.article_companyScale %></td>
+                <td><%= article.article_content %></td>
+                <td><%= link_to 'Show', article_path(article) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <table class="table table-sm">
+          <tbody>
+            <h3 style="padding-bottom: 10px">面接動画</h3>
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">ユーザー名</th>
+                <th scope="col">志望業界</th>
+                <th scope="col">志望する企業規模</th>
+                <th scope="col">投稿内容</th>
+                <th scope="col">投稿詳細へ</th>
+              </tr>
+            </thead>
+            <% @moviearticles.each do |article| %>
+              <tr>
+                <td><%= article.user.name %></td>
+                <td><%= article.article_industry %></td>
+                <td><%= article.article_companyScale %></td>
+                <td><%= article.article_content %></td>
+                <td><%= link_to 'Show', article_path(article) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>

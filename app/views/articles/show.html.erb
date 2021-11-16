@@ -1,42 +1,84 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @article.category %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">投稿の詳細</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <%= link_to edit_article_path(@article) do %>
+            <div class="btn-group mr-2">
+           　 <button type="button" class="btn btn-sm btn-outline-secondary">投稿を編集</button>
+          　</div>
+          <% end %>
+          <%= link_to article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <div class="btn-group mr-2">
+           　 <button type="button" class="btn btn-sm btn-outline-secondary">投稿を削除</button>
+          　</div>
+          <% end %>
+          <%= link_to articles_path do %>
+            <div class="btn-group mr-2">
+           　 <button type="button" class="btn btn-sm btn-outline-secondary">自分の投稿一覧へ</button>
+          　</div>
+          <% end %>
+        </div>
+      </div>
 
-<p>
-  <strong>Article industry:</strong>
-  <%= @article.article_industry %>
-</p>
-
-<p>
-  <strong>Article companyscale:</strong>
-  <%= @article.article_companyScale %>
-</p>
-
-<p>
-  <strong>Article content:</strong>
-  <%= @article.article_content %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Destroy', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Back', articles_path %>
-
-<%= form_with(model:[@article, @comment], method: :post) do |f| %>
-  <%= f.text_area :comment_content, autofocus: true %>
-  <%= f.hidden_field :article_id, value: @article.id %>
-  <%= f.submit %>
-<% end %>
-
-<table>
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.user.email %></td>
-        <td><%= comment.comment_content %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <h4>
+        <strong>カテゴリー</strong>
+      </h4>
+      <div class="border border-dark" style="padding: 10px; width: 600px; height: 50px">
+        <h5>
+          <%= @article.category %>
+        </h5>
+      </div>
+      <h4 style="padding-top: 30px">
+        <strong>Article industry:</strong>
+      </h4>
+      <div class="border border-dark" style="padding: 10px; width: 600px; height: 50px">
+        <h5>
+          <%= @article.article_industry %>
+        </h5>
+      </div>
+      
+      <h4 style="padding-top: 30px">
+        <strong>Article companyscale:</strong>
+      </h4>
+      <div class="border border-dark" style="padding: 10px; width: 600px; height: 50px">
+        <h5>
+          <%= @article.article_companyScale %>
+        </h5>
+      </div>
+      
+      <h4 style="padding-top: 30px">
+        <strong>Article content:</strong>
+      </h4>
+      <div class="border border-dark" style="padding: 10px; width: 600px; height: 50px">
+        <h5>
+          <%= @article.article_content %>
+        </h5>
+      </div>
+      
+      <%= link_to '投稿を編集', edit_article_path(@article) %> |
+      <%= link_to '投稿を削除', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <%= link_to '自分の投稿一覧に戻る', articles_path %>
+      
+      <%= form_with(model:[@article, @comment], method: :post) do |f| %>
+        <%= f.text_area :comment_content, autofocus: true %>
+        <%= f.hidden_field :article_id, value: @article.id %>
+        <%= f.submit %>
+      <% end %>
+      
+      <table>
+        <tbody>
+          <% @comments.each do |comment| %>
+            <tr>
+              <td><%= comment.user.email %></td>
+              <td><%= comment.comment_content %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</div>
