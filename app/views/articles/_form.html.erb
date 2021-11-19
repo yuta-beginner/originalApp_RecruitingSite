@@ -18,6 +18,7 @@
         <% end %>
       
         <div class="field">
+          <label><h5><strong>投稿カテゴリー</strong></h5></label><br>
           <%= form.label(:selfPR, for: nil, class:'category_label') do %>
             <%= form.radio_button :category, :selfPR %>自己PR
           <% end %>
@@ -30,11 +31,12 @@
         </div>
       
         <div class="field">
-          <%= form.label :article_industry %>
+          <h5><strong><%= form.label :article_industry, "志望業界" %></strong></h5>
           <%= form.text_field :article_industry %>
         </div>
       
         <div class="field">
+          <label><h5><strong>志望する企業規模</strong></h5></label><br>
           <%= form.label(:large, for: nil, class:'article-companyScale_label') do %>
             <%= form.radio_button :article_companyScale, :large %>大手
           <% end %>
@@ -50,7 +52,7 @@
         </div>
       
         <div class="field">
-          <%= form.label :article_content %>
+          <h5><strong><%= form.label :article_content, "投稿内容" %></strong></h5>
           <%= form.text_area :article_content %>
         </div>
       

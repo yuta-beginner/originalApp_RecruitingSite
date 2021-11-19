@@ -23,8 +23,8 @@
           <% end %>
         </div>
       </div>
-
-      <h4>
+ 
+      <h4 style="padding-left: 30px">
         <strong>カテゴリー</strong>
       </h4>
       <div class="border border-dark" style="padding: 10px; width: 600px; height: 50px">
@@ -32,7 +32,7 @@
           <%= @article.category %>
         </h5>
       </div>
-      <h4 style="padding-top: 30px">
+      <h4 style="padding-top: 30px; padding-left: 30px">
         <strong>Article industry:</strong>
       </h4>
       <div class="border border-dark" style="padding: 10px; width: 600px; height: 50px">
@@ -41,7 +41,7 @@
         </h5>
       </div>
       
-      <h4 style="padding-top: 30px">
+      <h4 style="padding-top: 30px; padding-left: 30px">
         <strong>Article companyscale:</strong>
       </h4>
       <div class="border border-dark" style="padding: 10px; width: 600px; height: 50px">
@@ -50,7 +50,7 @@
         </h5>
       </div>
       
-      <h4 style="padding-top: 30px">
+      <h4 style="padding-top: 30px; padding-left: 30px">
         <strong>Article content:</strong>
       </h4>
       <div class="border border-dark" style="padding: 10px; width: 600px; height: 50px">
@@ -59,10 +59,7 @@
         </h5>
       </div>
       
-      <%= link_to '投稿を編集', edit_article_path(@article) %> |
-      <%= link_to '投稿を削除', article_path(@article), method: :delete, data: { confirm: 'Are you sure?' } %> |
-      <%= link_to '自分の投稿一覧に戻る', articles_path %>
-      
+      <br>
       <%= form_with(model:[@article, @comment], method: :post) do |f| %>
         <%= f.text_area :comment_content, autofocus: true %>
         <%= f.hidden_field :article_id, value: @article.id %>
